@@ -8,9 +8,9 @@ fun main() {
         val (move, number) = moveString.split(";")
         val (whereFrom, whereTo) = move.split("-")
 
-        println("Откуда: $whereFrom")
-        println("Куда: $whereTo")
-        println("Номер хода: $number")
+        println(whereFrom)
+        println(whereTo)
+        println(number)
     }
 
 
