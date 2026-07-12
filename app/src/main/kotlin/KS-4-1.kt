@@ -8,8 +8,8 @@ fun main() {
         val secondBoolTable = 9
         val availabilityTodayTable: Boolean = ALL_TABLE > firstBookTable
         val availabilityTomorrowTable: Boolean = ALL_TABLE > secondBoolTable
-        println("Доступность столиков на сегодня: $availabilityTodayTable")
-        println("Доступность столиков на завтра: $availabilityTomorrowTable")
+        println("Доступность столиков на сегодня: $availabilityTodayTable\nДоступность столиков на завтра: $availabilityTomorrowTable")
+
     }
 
 
