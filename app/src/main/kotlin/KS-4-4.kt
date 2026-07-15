@@ -1,7 +1,6 @@
 package org.example.app
 
 fun main() {
-
     val day = 5
 
     val arms = day % 2 == 1
@@ -10,5 +9,4 @@ fun main() {
     val abs = day % 2 == 1
 
     println("Упражнения для рук: $arms\nУпражнения для ног: $legs\nУпражнения для спины: $back\nУпражнения для пресса: $abs")
-
 }
