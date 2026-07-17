@@ -11,6 +11,6 @@ fun main() {
     if (userAnswer == answer) {
         println("Добро пожаловать!")
     } else {
-        println("Доступ Запрещен.")
+        println("Доступ запрещен.")
     }
 }
