@@ -16,4 +16,6 @@ fun main() {
     }else{
         println("Неудача!")
     }
+    println("Правильные числа: $oneNumber и $twoNumber")
+
 }
