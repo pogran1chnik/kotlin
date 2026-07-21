@@ -2,10 +2,10 @@ package org.example.app
 
 fun main() {
 
-    val ingredients = mutableListOf("рис", "барбарис", "мясо", "морковка", "перец")
+    val ingredients = arrayOf("рис", "барбарис", "мясо", "морковка", "перец")
 
 
-    println("Список ингредиентов: $ingredients")
+    println("Список ингредиентов: ${ingredients.joinToString(", ")}")
 
 
     println("Какой ингредиент вы хотите заменить?")
