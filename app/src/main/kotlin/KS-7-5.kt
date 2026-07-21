@@ -1,14 +1,16 @@
 package org.example.app
 
+import kotlin.random.Random
+
 fun main() {
     // Запрашиваем длину пароля
     println("Введите длину пароля (минимум 6):")
-    val length = readln().toInt()
+    var length = readln().toInt()
 
-    // Проверяем минимальную длину
+    // Автоматически корректируем длину до минимальной
     if (length < 6) {
-        println("Длина пароля должна быть не менее 6 символов!")
-        return
+        println("Длина пароля не может быть меньше 6. Установлена длина 6.")
+        length = 6
     }
 
     // Создаем наборы символов
@@ -38,16 +40,4 @@ fun main() {
 
     // Выводим пароль
     println("Ваш пароль: $password")
-
-    // Выводим каждый символ с его позицией (используем forEachIndexed)
-    println("\nПроверка символов пароля:")
-    password.forEachIndexed { index, char ->
-        val type = when {
-            char in lowercase -> "строчная"
-            char in uppercase -> "заглавная"
-            char in digits -> "цифра"
-            else -> "другой"
-        }
-        println("Символ ${index + 1}: $char ($type)")
-    }
 }
