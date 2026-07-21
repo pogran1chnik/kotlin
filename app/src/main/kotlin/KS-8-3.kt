@@ -7,13 +7,12 @@ fun main() {
     val ingridients = arrayOf("рис", "барбарис", "мясо", "морковка", "перец")
     println("Введите ингредиент для поиска:")
     val useringridients = readln()
-    for (i in ingridients){
-        if (useringridients == i){
-            println("Ингредиент $useringridients в рецепте есть")
-            return
-        }
+    if (useringridients in ingridients) {
+        println("Ингредиент $useringridients в рецепте есть")
+    } else {
+        println("Такого ингредиента в рецепте нет")
 
     }
-
-    println("Такого ингредиента в рецепте нет")
 }
+
+
