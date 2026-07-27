@@ -18,9 +18,8 @@ fun generateToken(): String {
     val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     var token = ""
 
-    for (i in 0 until 32) {
-        val randomIndex = Random.nextInt(chars.length)
-        token += chars[randomIndex]
+    repeat(32) {
+        token += chars[Random.nextInt(chars.length)]
     }
 
     return token
@@ -43,11 +42,8 @@ fun getCart(token: String?): List<String>? {
 }
 
 fun main() {
-    println("Введите логин:")
-    val login = readln().trim()
-
-    println("Введите пароль:")
-    val password = readln().trim()
+    val login = "admin"
+    val password = "12345"
 
     val token = authorize(login, password)
     val cart = getCart(token)
