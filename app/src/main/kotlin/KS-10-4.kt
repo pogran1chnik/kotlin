@@ -1,6 +1,5 @@
 package org.example.app
 
-import kotlin.random.Random
 
 fun rollDice(): Int {
     return (1..6).random()
@@ -34,7 +33,7 @@ fun main() {
         if (isWin) {
             wins++
         }
-        println("Хотите бросить игральную кость еще раз? Введите Да или Нет")
+        println("Хотите бросить кости еще раз? Введите Да или Нет")
         val answer = readln()
         if (answer.equals("Нет", ignoreCase = true)) {
             break
