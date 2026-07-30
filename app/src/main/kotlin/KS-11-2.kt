@@ -1,12 +1,12 @@
 package org.example.app
 
 
-class  User2(
+class User2(
     val id: Int,
     val login: String,
     var password: String,
     val email: String,
-    var bio: String,
+    var bio: String = ""
 ) {
     fun printInfo() {
         println("информация о пользователе:")
@@ -39,8 +39,9 @@ class  User2(
         }
     }
 }
+
 fun main() {
-    val user = User2(1, "dima", "dima123", "dima123@mail.com", "")
+    val user = User2(1, "dima", "dima123", "dima123@mail.com")
     println("Начальная информация")
     user.printInfo()
     println()
