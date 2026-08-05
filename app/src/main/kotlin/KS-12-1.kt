@@ -1,7 +1,7 @@
 package org.example.app
 
 
-class WeatherData(){
+class WeatherData{
     var dayTemperature: Int = 0
     var nightTemperature: Int = 0
     var hasPrecipitation: Boolean = false
