@@ -1,12 +1,12 @@
 package org.example.app
 
 
-class WeatherData(
-    var dayTemperature: Int = 0,
-    var nightTemperature: Int = 0,
-    var hasPrecipitation: Boolean = false,
+class WeatherData(){
+    var dayTemperature: Int = 0
+    var nightTemperature: Int = 0
+    var hasPrecipitation: Boolean = false
 
-    ) {
+
     fun printInfo() {
         println("Дневная температура: $dayTemperature")
         println("Ночная температура: $nightTemperature")
