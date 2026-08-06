@@ -3,7 +3,7 @@ package org.example.app
 class Contact2(
     val name: String,
     val phoneNumber: Long,
-    val company: String?,
+    val company: String? = null,
 ) {
     fun printInfo() {
         val companyDisplay = company ?: "<не указано>"
@@ -11,7 +11,7 @@ class Contact2(
     }
 }
 fun main() {
-    val contact1 = Contact2("Dima", 79781233267, null)
+    val contact1 = Contact2("Dima", 79781233267)
     contact1.printInfo()
 
 
