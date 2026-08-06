@@ -19,7 +19,7 @@ fun main() {
         WeatherData(dayTemp, nightTemp, hasPrecip)
     }
     val dayTemps = weatherList.map {it.dayTemperature}
-    val nightTemps = weatherList.map {it.dayTemperature}
+    val nightTemps = weatherList.map {it.nightTemperature}
 
     val rainyDays = weatherList.count {it.hasPrecipitation}
 
