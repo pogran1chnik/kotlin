@@ -25,7 +25,7 @@ fun main() {
         println("\nКонтакт создан!")
         contact.printInfo()
     } catch (e: NumberFormatException) {
-        println("Ошибка: ${e.message}")
+        println("Ошибка: ${e::class.simpleName}")
         println("Некорректный номер телефона. Допустимы только цифры.")
     }
 
