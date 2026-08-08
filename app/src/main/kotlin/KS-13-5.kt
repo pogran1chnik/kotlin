@@ -14,14 +14,11 @@ class Contact5(
 
 fun main() {
 
-    println("Введите имя:")
-    val name = readln()
+
     try {
         println("Введите номер:")
         val phoneNumber: Long = readln().toLong()
-        println("Введите компанию:")
-        val company = readln()
-        val contact = Contact5(name, phoneNumber, company)
+        val contact = Contact5(name = "Dima", phoneNumber, company = "Google")
         println("\nКонтакт создан!")
         contact.printInfo()
     } catch (e: NumberFormatException) {
