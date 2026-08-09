@@ -39,13 +39,13 @@ fun main() {
 
     val blackPerimeters = allFigure
         .filter { it.color == COLOR_BLACK }
-        .sumOf { it.area() }
+        .sumOf { it.perimeter() }
 
     val whiteAreaSum = allFigure
         .filter { it.color == COLOR_WHITE}
-        .sumOf { it.perimeter() }
+        .sumOf { it.area() }
 
-    println("Результаты")
+
     println("Сумма периметров черных фигур: ${String.format("%.2f", blackPerimeters)}")
     println("Сумма площадей белых фигур: ${String.format("%.2f", whiteAreaSum)}")
 }
