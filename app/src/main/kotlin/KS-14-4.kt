@@ -24,6 +24,8 @@ class Planet(
         satellites.add(satellite)
     }
 
+    fun getSatelliteNames(): List<String> = satellites.map { it.name }
+
     override fun printInfo() {
         super.printInfo()
         println("Спутники:")
@@ -51,26 +53,18 @@ class Satellite(
 }
 
 fun main() {
-
+    // Создаем спутники
     val moon = Satellite("Луна", false, false, 27.3)
     val phobos = Satellite("Фобос", false, false, 0.32)
-    val deimos = Satellite("Деймос", false, false, 1.26)
 
-
+    // Создаем планету
     val earth = Planet("Земля", true, true)
 
-
+    // Добавляем спутники к планете
     earth.addSatellite(moon)
     earth.addSatellite(phobos)
 
-
-
-    println("=== Планета ===")
-    earth.printInfo()
-
-
-    println("\n=== Информация о спутниках ===")
-    moon.printInfo()
-    println()
-    phobos.printInfo()
+    // Выводим только название планеты и названия спутников
+    println("Планета: ${earth.name}")
+    println("Спутники: ${earth.getSatelliteNames().joinToString(", ")}")
 }
