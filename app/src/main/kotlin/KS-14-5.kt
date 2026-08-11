@@ -2,32 +2,32 @@ package org.example.app
 
 open class Message(
     val id: Int,
-    val author: String,
     val text: String,
-    val parentMessageId: Int? = null,
+    val author: String,
+    val parentMessageId: Int? = null
 )
+
 class ChildMessage(
     id: Int,
-    author: String,
     text: String,
+    author: String,
     parentMessageId: Int
-) : Message(id, author, text, parentMessageId)
+) : Message(id, text, author, parentMessageId)
 
 class Chat {
-
     private val messages = mutableListOf<Message>()
     private var nextId = 1
 
-
-    fun addMessage(author: String, text: String){
-        messages.add(Message(nextId, author, text))
+    fun addMessage(text: String, author: String) {
+        val message = Message(nextId, text, author)
+        messages.add(message)
         nextId++
-
     }
-    fun addThreadMessage(parentMessageId: Int, author: String, text: String){
-        val parentExists = messages.any{ it.id == parentMessageId}
-        if (parentExists){
-            val childMessage = ChildMessage(nextId, author, text, parentMessageId)
+
+    fun addThreadMessage(text: String, author: String, parentMessageId: Int) {
+        val parentExists = messages.any { it.id == parentMessageId }
+        if (parentExists) {
+            val childMessage = ChildMessage(nextId, text, author, parentMessageId)
             messages.add(childMessage)
             nextId++
         } else {
@@ -41,16 +41,13 @@ class Chat {
             return
         }
 
-        // Группируем сообщения по parentMessageId
         val grouped = messages.groupBy { it.parentMessageId }
 
-        // Сначала печатаем обычные сообщения (parentMessageId == null)
         grouped[null]?.forEach { message ->
-            println("${message.author}: ${message.text}")
+            println("[${message.id}] ${message.author}: ${message.text}")
 
-            // Печатаем дочерние сообщения для этого родителя
             grouped[message.id]?.forEach { child ->
-                println("\t${child.author}: ${child.text}")
+                println("\t[${child.id}] ${child.author}: ${child.text}")
             }
         }
     }
@@ -59,27 +56,19 @@ class Chat {
 fun main() {
     val chat = Chat()
 
+    chat.addMessage("Привет всем!", "Alice")
+    chat.addMessage("Всем привет!", "Bob")
+    chat.addMessage("Как дела?", "Alice")
 
-    chat.addMessage("Alice", "Привет всем!")
-    chat.addMessage("Bob", "Всем привет!")
-    chat.addMessage("Alice", "Как дела?")
+    chat.addThreadMessage("У меня отлично!", "Charlie", 3)
+    chat.addThreadMessage("Тоже хорошо!", "Bob", 3)
 
+    chat.addMessage("Что нового?", "Alice")
 
-    chat.addThreadMessage(3, "Charlie", "У меня отлично!")
-    chat.addThreadMessage(3, "Bob", "Тоже хорошо!")
+    chat.addThreadMessage("Есть новости!", "Bob", 6)
 
-
-    chat.addMessage("Alice", "Что нового?")
-
-
-    chat.addThreadMessage(5, "Bob", "Есть новости!")
-
-
-    chat.addThreadMessage(99, "Test", "Это не будет добавлено")
+    chat.addThreadMessage("Это не будет добавлено", "Test", 99)
 
     println("=== Чат ===")
     chat.printChat()
 }
-
-
-
