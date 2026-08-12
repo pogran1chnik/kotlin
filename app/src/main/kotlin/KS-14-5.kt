@@ -41,9 +41,7 @@ class Chat {
             return
         }
 
-        // Группируем сообщения:
-        // - обычные сообщения группируем по их id
-        // - дочерние сообщения группируем по parentMessageId
+        // Группируем сообщения по parentMessageId (для дочерних) и по id (для родительских)
         val grouped = messages.groupBy { message ->
             if (message is ChildMessage) {
                 message.parentMessageId
@@ -57,8 +55,8 @@ class Chat {
         parentMessages.forEach { parent ->
             println("[${parent.id}] ${parent.author}: ${parent.text}")
 
-            // Выводим дочерние сообщения для этого родителя
-            grouped[parent.id]?.forEach { child ->
+            // Выводим только дочерние сообщения для этого родителя
+            grouped[parent.id]?.filter { it is ChildMessage }?.forEach { child ->
                 println("\t[${child.id}] ${child.author}: ${child.text}")
             }
         }
