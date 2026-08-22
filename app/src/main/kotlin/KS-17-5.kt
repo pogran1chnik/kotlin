@@ -7,8 +7,8 @@ class User(login: String, password: String){
     var login: String
         get() = _login
         set(value) {
-            _login = login
-            println("Логин изменен!")
+            _login = value
+            println("Логин изменен на: $value")
         }
     var password: String
         get() = "*".repeat(_password.length)
@@ -16,8 +16,8 @@ class User(login: String, password: String){
             println("Вы не можете изменить пароль")
         }
     fun printInfo(){
-        println("Логин: $_login")
-        println("Пароль: $_password")
+        println("Логин: $login")
+        println("Пароль: $password")
         println()
     }
 }
