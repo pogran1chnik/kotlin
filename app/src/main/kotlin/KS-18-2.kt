@@ -17,6 +17,6 @@ fun main() {
     val dices: List<Dice> = listOf(D4(), D6(), D8())
 
     println("Броски костей")
-    dices.forEach { it.roll()}
+    dices.forEach { println(it.roll())}
 
 }
