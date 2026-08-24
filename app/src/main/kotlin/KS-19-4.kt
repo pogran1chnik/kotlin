@@ -3,7 +3,7 @@ package org.example.app
 enum class AmmoType(val damage: Int) {
     BLUE(5),
     GREEN(10),
-    RED(20)
+    RED(20),  // ← trailing comma
 }
 
 class Tank {
@@ -15,9 +15,10 @@ class Tank {
     }
 
     fun fire() {
-        val ammo = currentAmmo  // ← локальная копия
+        val ammo = currentAmmo
         if (ammo != null) {
             println("Выстрел! Нанесен урон: ${ammo.damage}")
+            currentAmmo = null  // ← патрон потрачен
         } else {
             println("Танк не заряжен!")
         }
@@ -36,7 +37,16 @@ fun main() {
     tank.fire()
     println()
 
+    println("=== Попытка выстрела после использования патрона ===")
+    tank.fire()
+    println()
+
     println("=== Зарядка другим типом патронов ===")
     tank.loadAmmo(AmmoType.RED)
+    tank.fire()
+    println()
+
+    println("=== Зарядка зелеными патронами ===")
+    tank.loadAmmo(AmmoType.GREEN)
     tank.fire()
 }
