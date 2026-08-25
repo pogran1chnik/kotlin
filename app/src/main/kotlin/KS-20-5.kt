@@ -24,15 +24,7 @@ class Robot {
 
 fun main() {
     val robot = Robot()
-
-
     robot.say()
-    println()
-
-
     robot.setModifier { it.reversed() }
-    println()
-
-
     robot.say()
 }
