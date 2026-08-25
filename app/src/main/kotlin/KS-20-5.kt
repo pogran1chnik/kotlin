@@ -1,6 +1,5 @@
 package org.example.app
 
-
 class Robot {
     private val phrases = listOf(
         "Привет, мир!",
@@ -9,26 +8,31 @@ class Robot {
         "Работаю по расписанию.",
         "Время для чая."
     )
-    private var modifier: ((String) -> String)? = null
+
+    private var modifier: (String) -> String = { it }
+
     fun setModifier(modifier: (String) -> String) {
         this.modifier = modifier
     }
-    fun say(){
-        val phrase = phrases.random()
-        val result = modifier?.let {it(phrase)} ?: phrase
-        println("Робот говорит: $result")
-    }
 
+    fun say() {
+        val phrase = phrases.random()
+        val result = modifier(phrase)
+        println(result)
+    }
 }
 
 fun main() {
     val robot = Robot()
+
+    println("=== Обычная речь ===")
     robot.say()
-    robot.setModifier {  it.reversed() }
+    println()
+
+    println("=== Установка модификатора ===")
+    robot.setModifier { it.reversed() }
+    println()
+
+    println("=== Речь с модификатором ===")
     robot.say()
-
-
-
 }
-
-
