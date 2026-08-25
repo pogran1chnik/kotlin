@@ -25,14 +25,14 @@ class Robot {
 fun main() {
     val robot = Robot()
 
-    println("=== Обычная речь ===")
+
     robot.say()
     println()
 
-    println("=== Установка модификатора ===")
+
     robot.setModifier { it.reversed() }
     println()
 
-    println("=== Речь с модификатором ===")
+
     robot.say()
 }
