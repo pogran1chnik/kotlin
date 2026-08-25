@@ -9,7 +9,7 @@ fun main() {
         {println("Нажат элемент $item")}
     }
     lambdas.forEachIndexed { index, lambda ->
-        if (index % 2 == 0){
+        if (index % 2 == 1){
             lambda()
         }
     }
